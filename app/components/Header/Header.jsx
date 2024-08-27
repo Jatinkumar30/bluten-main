@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className='flex z-0 flex-col md:flex-row justify-between items-center m-4'>
       <div className='flex flex-col md:flex-row items-center w-full md:justify-between '>
-        <Image src='/Logo.svg' height={150} width={150} alt='logo' className='md:ml-20 mb-4 md:mb-0 ' />
+        <Image src='/Logo.svg' height={150} width={150} alt='logo' className='md:ml-20 mb-4 md:mb-0 sm:visibility: hidden' />
         
         <div className='flex flex-col md:flex-row items-center gap-4 md:gap-14 w-full md:w-auto'>
           <div className='relative w-full md:w-auto'>
