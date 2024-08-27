@@ -15,7 +15,7 @@ export default function ImageGallery() {
 
   return (
     <div className="min-h-screen flex flex-col items-center pt-3 sm:justify-center sm:p-4 z-0">
-      <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-3 gap-6 mb-8 ml-20">
         {imagesArray.map((_, index) => (
           <div key={index} className="relative">
             <Image

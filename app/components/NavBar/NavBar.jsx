@@ -1,5 +1,5 @@
-'use client'
-import React, { useState } from 'react'
+'use client';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,24 +16,33 @@ const NavBar = () => {
     ];
 
     return (
-        <nav className='flex z-0 flex-col md:flex-row p-4 justify-between items-center'>
+        <nav className='flex flex-col md:flex-row p-4 justify-between items-center'>
             <div className='flex justify-between w-full md:w-auto'>
-                <div>
+                {/* Search Bar - Only visible on medium screens and above */}
+                <div className='hidden md:block'>
                     <div className='relative'>
                         <input 
                             type="search" 
                             placeholder=' Suchen' 
                             className='relative rounded-full w-80 pl-3 pt-2 pb-2 font-medium bg-[#EEF7F7] text-black placeholder-[#62C3C6]' 
                         />
-                        <Image src='/Search.svg' height={20} width={20} alt='search' className='  absolute left-72 top-3' />
+                        <Image src='/Search.svg' height={20} width={20} alt='search' className='absolute left-72 top-3' />
                     </div>
                 </div>
-                <button 
-                    className='md:hidden p-2'
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    <Image src='/menu.png' height={30} width={30} alt='menu' />
-                </button>
+                
+                {/* Mobile View Container for Hamburger and Headline */}
+                <div className='flex items-center justify-between w-full md:hidden'>
+                    {/* Headline */}
+                    <img src="https://bluten-main.vercel.app/Logo.svg" alt="" />
+                    
+                    {/* Hamburger Menu Button */}
+                    <button 
+                        className='p-2'
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        <Image src='/menu.png' height={30} width={30} alt='menu' />
+                    </button>
+                </div>
             </div>
 
             <div className={`md:flex gap-4 md:gap-8 mt-4 md:mt-0 ${isOpen ? 'block' : 'hidden'}`}>
@@ -41,7 +50,7 @@ const NavBar = () => {
                     <Link 
                         href={item.href} 
                         key={item.label} 
-                        className={`flex justify-center items-center sm:justify-start gap-4 hover:scale-110 transition-all ${active === item.label ? "font-bold" : ""} mt-4 md:mt-0`}  // Add mt-4 for mobile spacing
+                        className={`flex justify-center items-center sm:justify-start gap-4 hover:scale-110 transition-all ${active === item.label ? "font-bold" : ""} mt-4 md:mt-0`}
                         onClick={() => {
                             setActive(item.label);
                             if (window.innerWidth < 768) setIsOpen(false); // Close menu on mobile after clicking
@@ -69,7 +78,7 @@ const NavBar = () => {
                 </div>
             </div>
 
-            {/* Cart icon for desktop view */}
+            {/* Cart icon and login button for desktop view */}
             <div className='hidden md:flex gap-5 mt-4 md:mt-0'>
                 <Image 
                     src='/Cart.svg' 

@@ -6,6 +6,8 @@ import CustomCheckbox from "../CustomCheckbox/CustomCheckbox";
 import PriceSlider from "../customSliders/Price";
 import Thc from "../customSliders/Thc";
 import Cbd from "../customSliders/Cbd";
+import { MdFilterList } from "react-icons/md";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 const sora = Sora({ subsets: ["latin"] });
 
@@ -17,17 +19,25 @@ const SideBar = () => {
     setIsSidebarVisible(!isSidebarVisible);
   };
 
+  const closeSidebar = () => {
+    setIsSidebarVisible(false);
+  };
+
   return (
     <div className="relative z-40 ml-4 mr-2 sm:ml-10 w-96">
       {/* Hamburger Menu Button */}
-      <Image
+      {/* <Image
         src="/menu.png"
         height={50}
         width={50}
         alt="menu button"
         className="block sm:hidden"
-        onClick={toggleSidebar}
-      />
+      /> */}
+
+      <MdFilterList 
+      onClick={toggleSidebar}
+      className="text-3xl lg:hidden"
+       />
 
       {/* Sidebar */}
       <div
@@ -40,6 +50,11 @@ const SideBar = () => {
         >
           Filter
         </p>
+
+        <FaLongArrowAltLeft className="lg:hidden ml-10 mt-6 text-4xl" 
+          onClick={closeSidebar}
+        />
+        
         <PriceSlider />
         <div className="mt-2 border-b border-b-[#62C3C64D] w-full"></div>
 
