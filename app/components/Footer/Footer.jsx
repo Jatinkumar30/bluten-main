@@ -16,7 +16,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#1A8D91] z-0 flex w-full flex-col sm:flex-row sm:justify-evenly rounded-t-3xl text-center sm:text-left p-4 sm:p-8">
+    <footer className="bg-[#1A8D91] z-0 flex  flex-col sm:flex-row sm:justify-evenly rounded-t-3xl text-center sm:text-left p-4 sm:p-8">
       {/* AGB, Impressum, Datenschutz Section */}
       <div
         className={`mt-4 sm:mt-20 font-light text-slate-100 opacity-60 ${manrope.className} mb-6 sm:mb-10`}
